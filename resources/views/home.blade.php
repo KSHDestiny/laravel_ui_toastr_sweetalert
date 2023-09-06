@@ -14,7 +14,45 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <article>
+                        <div class="form-group mb-4">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" id="title" class="form-control" placeholder="Enter Title...">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="author" class="form-label">Author</label>
+                            <input type="text" id="author" class="form-control" placeholder="Enter Author...">
+                        </div>
+                        <button class="btn btn-success w-100">Create</button>
+                    </article>
+
+                    <article>
+                        <table class="table mt-5">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Created_at</th>
+                                    <th>Updated_at</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Laravel</td>
+                                    <td>Destiny</td>
+                                    <td>12.1.2023</td>
+                                    <td>12.2.2023</td>
+                                    <td>
+                                        <button class="btn btn-warning">Edit</button>
+                                        <button class="btn btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </article>
                 </div>
             </div>
         </div>
