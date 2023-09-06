@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('title_lists', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('title',50);
             $table->string('author',50);
             $table->timestamps();
