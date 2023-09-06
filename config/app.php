@@ -170,6 +170,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Jorenvh\Share\Providers\ShareServiceProvider::class,
+        // Brian2694\Toastr\ToastrServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -186,6 +187,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'Share' => Jorenvh\Share\ShareFacade::class,
+        // 'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
     ])->toArray(),
 
 ];
