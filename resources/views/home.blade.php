@@ -21,10 +21,12 @@
                         <div class="form-group mb-4">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" id="title" class="form-control" placeholder="Enter Title...">
+                            <span class="text-danger" id="titleError"></span>
                         </div>
                         <div class="form-group mb-4">
                             <label for="author" class="form-label">Author</label>
                             <input type="text" id="author" class="form-control" placeholder="Enter Author...">
+                            <span class="text-danger" id="authorError"></span>
                         </div>
                         <button class="btn btn-success w-100" onclick="store()" id="cuBtn">Create</button>
                     </article>
@@ -61,6 +63,9 @@
         function store(){
             let title = $('#title').val();
             let author = $('#author').val();
+
+            validation(title,author)
+
             $.ajax({
                 url: "{{ route('home.store') }}",
                 method: "POST",
@@ -113,6 +118,9 @@
             let id = $("#id").val();
             let title = $('#title').val();
             let author = $('#author').val();
+
+            validation(title,author)
+
             let route = "{{ route('home.update',':id') }}";
             route = route.replace(':id',id);
             $.ajax({
@@ -132,6 +140,30 @@
         }
 
         {{--! function --}}
+
+        function validation(title,author){
+            titleError = title == "" && true;
+            titleLengthError = title.length > 50 && true;
+            authorError = author == "" && true;
+            authorLengthError = author.length > 50 && true;
+
+            if(titleError){
+                $('#titleError').text("Title must not be empty.");
+            } else if (titleLengthError){
+                $('#titleError').text("Title must not exceed 50 charactors.");
+            } else {
+                $('#titleError').text("");
+            }
+            if (authorError){
+                $('#authorError').text("Author must not be empty.");
+            } else if (authorLengthError){
+                $('#authorError').text("Author must not exceed 50 charactors.");
+            } else {
+                $('#authorError').text("");
+            }
+
+        }
+
         function toastrMessage(status,action){
             if( status == 'success' ){
                 let text = "";

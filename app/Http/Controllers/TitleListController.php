@@ -56,6 +56,8 @@ class TitleListController extends Controller
     }
 
     public function update(Request $request){
+        $this->listValidation($request);
+
         $list = TitleList::find($request->id);
         $list->title = $request->title;
         $list->author = $request->author;
@@ -67,6 +69,9 @@ class TitleListController extends Controller
     }
 
     private function listValidation($request){
-
+        $request->validate([
+            'title' => 'required|max:50',
+            'author' => 'required|max:50',
+        ]);
     }
 }
