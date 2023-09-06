@@ -22,4 +22,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home/fetch',[TitleListController::class,'fetch'])->name("home.fetch");
+Route::get('/home/list/{searchKey}',[TitleListController::class,'search'])->name("home.search");
 Route::resource('/home',TitleListController::class);

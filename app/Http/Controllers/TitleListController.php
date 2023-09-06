@@ -67,6 +67,17 @@ class TitleListController extends Controller
         ]);
     }
 
+    public function search($searchKey){
+        $lists = TitleList::when(($searchKey), function($query) use ($searchKey){
+            $query->where('title','like','%'.$searchKey."%")
+                    ->orWhere('author','like','%'.$searchKey."%");
+        })->get();
+
+        return response()->json([
+            "lists" => $lists
+        ]);
+    }
+
     private function listValidation($request){
         $request->validate([
             'title' => 'required|max:50',
