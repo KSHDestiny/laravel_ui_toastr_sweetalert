@@ -1,0 +1,12 @@
+[
+    {"id":1,"name":"Aung Aung","email":"aungaung@gmail.com","password":"aungaung123"},
+    {"id":2,"name":"Mya Mya","email":"myamya@gmail.com","password":"myamya123"},
+    {"id":3,"name":"Hla Hla","email":"hlahla@gmail.com","password":"hlahla123"},
+    {"id":4,"name":"Zaw Zaw","email":"zawzaw@gmail.com","password":"zawzaw123"},
+    {"id":5,"name":"Kyaw Kyaw","email":"kyawkyaw@gmail.oom","password":"kyawkyaw123"},
+    {"id":6,"name":"Moe Moe","email":"moemoe@gmail.com","password":"moemoe123"},
+    {"id":7,"name":"Tun Tun","email":"tuntun@gmail.com","password":"tuntun123"},
+    {"id":8,"name":"Zin Zin","email":"zinzin@gmail.com","password":"zinzin123"},
+    {"id":9,"name":"Hnin Si","email":"hninsi@gmail.com","password":"hninsi123"},
+    {"id":10,"name":"Myo Myo","email":"myomyo@gmail.com","password":"myomyo123"}
+]

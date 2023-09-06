@@ -48,7 +48,8 @@
                                     <th>Author</th>
                                     <th>Created_at</th>
                                     <th>Updated_at</th>
-                                    <th>Actions</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody id="tableData">
@@ -177,6 +178,8 @@
                     fetchingData(lists);
                 }
             })
+        }else {
+            fetch();
         }
     }
 
@@ -253,6 +256,8 @@
                     <td>`+new Date(item.updated_at).toDateString()+`</td>
                     <td>
                         <button class='btn btn-warning' onclick="edit(`+item.id+`)">Edit</button>
+                    </td>
+                    <td>
                         <button class='btn btn-danger' onclick="destroy(`+item.id+`)">Delete</button>
                     </td>
                 </tr>

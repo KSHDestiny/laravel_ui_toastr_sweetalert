@@ -35,7 +35,7 @@ class TitleListController extends Controller
 
     public function fetch(){
         $lists = TitleList::where('user_id',Auth::user()->id)->get();
-        logger($lists);
+        logger(Auth::user());
         return response()->json([
             "lists" => $lists
         ]);
