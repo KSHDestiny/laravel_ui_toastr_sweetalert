@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
@@ -82,20 +83,33 @@
         }
 
         function destroy(id){
-            let route = "{{ route('home.destroy',':id') }}";
-            route = route.replace(':id',id);
-            $.ajax({
-                url: route,
-                method: "DELETE",
-                headers: {
-                    'X-CSRF-Token': '{{ csrf_token() }}'
-                },
-                data: {id},
-                success: function({status,action}){
-                    toastrMessage(status,action)
-                    fetch();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Swal.fire('Deleted!','Your file has been deleted.','success');
+                  let route = "{{ route('home.destroy',':id') }}";
+                    route = route.replace(':id',id);
+                    $.ajax({
+                        url: route,
+                        method: "DELETE",
+                        headers: {
+                            'X-CSRF-Token': '{{ csrf_token() }}'
+                        },
+                        data: {id},
+                        success: function({status,action}){
+                            fetch();
+                        }
+                    })
                 }
-            })
+              })
+
         }
 
         function edit(id){
@@ -169,7 +183,6 @@
                 let text = "";
                 text = action == 'create' ? "Created" : text;
                 text = action == 'update' ? "Updated" : text;
-                text = action == 'destroy' ? "Deleted" : text;
 
                 toastr.success(`One List is Successfully ${text}! &nbsp;<i class="far fa-check-circle"></i>`, 'SUCCESS MESSAGE', {
                     closeButton: true,

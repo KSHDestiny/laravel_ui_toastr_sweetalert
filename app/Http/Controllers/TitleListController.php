@@ -44,7 +44,6 @@ class TitleListController extends Controller
         $list->delete();
         return response()->json([
             "status" => "success",
-            "action" => "destroy",
         ]);
     }
 
