@@ -171,6 +171,7 @@ return [
 
         Jorenvh\Share\Providers\ShareServiceProvider::class,
         // Brian2694\Toastr\ToastrServiceProvider::class,
+        // RealRashid\SweetAlert\SweetAlertServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -188,6 +189,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Share' => Jorenvh\Share\ShareFacade::class,
         // 'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
+        // 'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ])->toArray(),
 
 ];
